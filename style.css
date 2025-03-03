@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #2f363e;
+}
+
+.container{
+    position: relative;
+    background: #203043;
+    /* min-height: 600px; */
+    border-radius: 20px;
+    border-top-left-radius: 265px;
+    border-top-right-radius: 265px;
+    box-shadow: 5px 25px 75px rgba(0, 0, 0, 0.75),
+    10px 10px 70px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 10px rgba(0,0,0,0.5),
+    inset 5px 5px 20px rgba(0,0,0,0.2),
+    inset -5px -5px 15px rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.clock{
+    position: relative;
+    width: 450px;
+    height: 450px;
+    background: #203043;
+    border-radius: 50%;
+    box-shadow: 10px 50px 70px rgba(0,0, 0,0.25),
+    inset 5px 5px 10px rgba(0,0,0,0.5),
+    inset 5px 5px 20px rgba(0,0,0,0.2),
+    inset -5px -5px 15px rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.clock::before{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #2f363e;
+    border: 3px solid #CCC;
+    border-radius: 50%;
+    z-index: 100000;
+}
+
+.clock span{
+    position: absolute;
+    inset: 20px;
+    color: #CCC;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock span b{
+    font-size: 22px;
+    font-weight: 600;
+    opacity: 0.75;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+}
+
+.circle{
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    border: 1px solid #404c5a;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+}
+
+.circle i{
+    position:absolute;
+    width: 5px;
+    height: 50%;
+    border-radius: 8px;
+    background: var(--clr);
+    opacity: 0.6;
+    transform-origin: bottom;
+    transform: scaleY(0.5);
+}
+
+.circle:nth-child(1) i{
+    width: 2px;
+    border-radius: 8px;
+}
+
+.circle:nth-child(2) i{
+    width: px;
+    border-radius: 8px;
+}
+
+
+.firstCircle{
+    width: 280px;
+    height: 280px;
+    z-index: 9;
+}
+
+.secondCircle{
+    width: 210px;
+    height: 210px;
+    z-index: 8;
+}
+
+.circle::before{
+    content: '';
+    position: absolute;
+    top: -8px;
+    width: 15px;
+    height: 15px;
+    background: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+}
+
+/* & digital-Clock */
+
+#digital{
+    width: 300px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 22px;
+    border: 2px solid rgba(0,0, 0,0.25);
+    border-radius: 40px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.237),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.071),
+    inset -5px -5px 20px rgba(0, 0, 0, 0.574);
+
+}
+
+#digital div{
+    position: relative;
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--clr);
+}
+
+#digital div:nth-child(1)::after,
+#digital div:nth-child(2)::after{
+    content: ':';
+    position: absolute;
+    right: -4px;
+    color: #fff;
+    animation: animate 1s steps(1) infinite;
+}
+
+@keyframes animate
+{
+    0%
+    {
+        opacity: 1;
+    }
+    50%
+    {
+        opacity: 0;
+    }
+}
+
+#digital div:last-child{
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+
+/* *All Device responsive Media Query * */
+
+/* * Mobile Devices (Portrait) */
+@media screen and (max-width: 576px) {
+    .clock {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 20px;
+    }
+    .clock span {
+        inset: 10px;
+    }
+    .clock span b {
+        font-size: 14px;
+    }
+    .circle {
+        width: 190px;
+        height: 190px;
+    }
+    .firstCircle {
+        width: 160px;
+        height: 160px;
+    }
+    .secondCircle {
+        width: 120px;
+        height: 120px;
+    }
+    #digital {
+        width: 200px;
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+    #digital div {
+        width: 40px;
+    }
+    #digital div:last-child {
+        font-size: 14px;
+    }
+}
+
+/* *Small Tablets & Landscape Mobile */
+@media screen and (max-width: 768px) {
+    .clock {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 30px;
+    }
+    .circle {
+        width: 230px;
+        height: 230px;
+    }
+    .firstCircle {
+        width: 180px;
+        height: 180px;
+    }
+    .secondCircle {
+        width: 140px;
+        height: 140px;
+    }
+    #digital {
+        width: 250px;
+        font-size: 18px;
+    }
+    #digital div {
+        width: 45px;
+    }
+}
+
+/* *Medium Devices (Tablets & Small Laptops) */
+@media screen and (max-width: 992px) {
+    .clock {
+        width: 350px;
+        height: 350px;
+    }
+    .circle {
+        width: 270px;
+        height: 270px;
+    }
+    .firstCircle {
+        width: 210px;
+        height: 210px;
+    }
+    .secondCircle {
+        width: 170px;
+        height: 170px;
+    }
+    #digital {
+        width: 280px;
+        font-size: 20px;
+    }
+}
+
+/* *Large Devices (Desktops) */
+@media screen and (max-width: 1200px) {
+    .clock {
+        width: 400px;
+        height: 400px;
+    }
+}
